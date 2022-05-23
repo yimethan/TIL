@@ -6,6 +6,8 @@
 - [Blockchain](#blockchain)
   - [Blockchain Basics (Coursera)](#blockchain-basics-coursera)
 - [Information Security](#information-security)
+  - [Car Hacker's Handbook](#car-hackers-handbook)
+  - [와이어샤크를 이용한 패킷캡처 철저입문](#와이어샤크를-이용한-패킷캡처-철저입문)
 
 ---
 
@@ -15,65 +17,22 @@
 
 &rarr; [Course link](https://www.coursera.org/specializations/deep-learning)
 
-**Week 1 - 2:**
++ md files are summary of the course
 
-+ Watch lectures week 1, 2 on [Introduction to Computer Vision and Image Processing](https://www.coursera.org/learn/introduction-computer-vision-watson-opencv?specialization=ai-engineer).
-+ Install jupyter notebook, anaconda, opencv.
-+ Run examples in the lectures and code it by yourself &rarr; Upload the notebooks on github
-+ Read more on the book Hands-On Image Processing with Python.
-+ More:
-  + Color spaces: Opencv documentation, BGR, RGB, HSV.
-  + Threshold: Otsu -> how to choose a threshold value for segmentation
-  + Canny Edge detection
-  + Editor Application:
-    + Open/Save image
-    + Drop
-    + Draw
-    + Filter
-    + Adjust: Brightness, R, G, B, H, S, V
-  + Advanced: Segmentation (Otsu), Edge detection (Canny edge).
+1. [Introduction to Computer Vision and Image Processing](https://www.coursera.org/learn/introduction-computer-vision-watson-opencv?specialization=ai-engineer)
+   + More: Segmentation (Otsu), Edge detection (Canny edge).
 
-**Week 3 - 4:**
+2. [Neural Networks and Deep Learning](https://www.coursera.org/learn/neural-networks-deep-learning)
 
-+ Watch lectures week 1,2 on [Neural Networks and Deep Learning](https://www.coursera.org/learn/neural-networks-deep-learning).
+3. [Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and Optimization](https://www.coursera.org/learn/deep-neural-network?specialization=deep-learning#syllabus)
 
-**Week 5 - 6:**
+4. Study Tensorflow, Pytorch and compare between 2 frameworks.
+   + Build a deep neural network using 2 frameworks on MNIST dataset.
+   + Compare the performance between 2 frameworks.
 
-+ Watch lectures week 3, 4 on [Neural Networks and Deep Learning](https://www.coursera.org/learn/neural-networks-deep-learning).
+5. [Convolutional Neural Networks](https://www.coursera.org/learn/convolutional-neural-networks)
 
-**Week 7 - 8:**
-
-+ Watch lectures of [Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and Optimization](https://www.coursera.org/learn/deep-neural-network?specialization=deep-learning#syllabus)
-
-**Week 9 - 10:**
-
-+ Study Tensorflow, Pytorch and compare between 2 frameworks.
-+ Build a deep neural network using 2 frameworks on MNIST dataset.
-+ Compare the performance between 2 frameworks.
-
-**Week 11 - 12:**
-
-+ Watch lectures week 1, 2 on [Convolutional Neural Networks](https://www.coursera.org/learn/convolutional-neural-networks).
-
-**Week 13 - 14:**
-
-+ Watch lectures week 3, 4 on [Convolutional Neural Networks](https://www.coursera.org/learn/convolutional-neural-networks).
-
-**Week 15-16:**
-
-+ Watch week 1 on [Sequential Models](https://www.coursera.org/learn/nlp-sequence-models?specialization=deep-learning).
-
-**Week 15-16:**
-
-+ Watch week 2 on [Sequential Models](https://www.coursera.org/learn/nlp-sequence-models?specialization=deep-learning).
-
-**Week 17-18:**
-
-+ Watch week 3 on [Sequential Models](https://www.coursera.org/learn/nlp-sequence-models?specialization=deep-learning).
-
-**Week 15-16:**
-
-+ Watch week 4 on [Sequential Models](https://www.coursera.org/learn/nlp-sequence-models?specialization=deep-learning).
+6. [Sequential Models](https://www.coursera.org/learn/nlp-sequence-models?specialization=deep-learning)
 
 ### Kaggle competitions
 
@@ -89,38 +48,52 @@
 
 &rarr; [Course link](https://www.coursera.org/specializations/blockchain)
 
-**Week 1-2:**
++ md files are not summary of the course
 
-+ Watch week 1~4 on [Blockchain Basics](https://www.coursera.org/learn/blockchain-basics?specialization=blockchain).
-+ More:
-  + What is 'gas'?
-  + EOAs vs Contract accouts
-  + IoT & Ethereum
+1. [Blockchain Basics](https://www.coursera.org/learn/blockchain-basics?specialization=blockchain)
+   + What is 'gas'?
+   + Ethereum Structure
+   + Ethereum Operations
+   + EOAs vs Contract accouts
+   + IoT & Ethereum
+   + UTXO
+   + Algorithms & Techinques: Public-Key Cryptography
 
-**Week 3-4:**
+2. [Smart Contracts](https://www.coursera.org/learn/smarter-contracts?specialization=blockchain)
 
-+ Watch week 1~2 on [Smart Contracts](https://www.coursera.org/learn/smarter-contracts?specialization=blockchain).
+3. [Decentralized Applications (Dapps)](https://www.coursera.org/learn/decentralized-apps-on-blockchain?specialization=blockchain)
 
-**Week 5-6:**
-
-+ Watch week 3~4 on [Smart Contracts](https://www.coursera.org/learn/smarter-contracts?specialization=blockchain).
-
-**Week 7-8:**
-
-+ Watch week 1~2 on [Decentralized Applications (Dapps)](https://www.coursera.org/learn/decentralized-apps-on-blockchain?specialization=blockchain).
-
-**Week 9-10:**
-
-+ Watch week 3~4 on [Decentralized Applications (Dapps)](https://www.coursera.org/learn/decentralized-apps-on-blockchain?specialization=blockchain).
-
-**Week 11-12:**
-
-+ Watch week 1~2 on [Blockchain Platforms](https://www.coursera.org/learn/blockchain-platforms?specialization=blockchain).
-
-**Week 13-14:**
-
-+ Watch week 3~4 on [Blockchain Platforms](https://www.coursera.org/learn/blockchain-platforms?specialization=blockchain).
+4. [Blockchain Platforms](https://www.coursera.org/learn/blockchain-platforms?specialization=blockchain)
 
 ---
 
 ## Information Security
+
+### Car Hacker's Handbook
+
++ 각 chapter 폴더는 내용 요약 md 파일과 더 알아보고 싶은 내용을 정리한 md 파일로 구성
++ 아래 목차는 더 알아보고 싶은 내용을 정리한 md의 목차임
+
+1. 위협 모델의 이해
+   1. TPMS
+   2. CAN
+   3. 공격 시나리오
+   4. 차량 내외부의 데이터 흐름과 통신
+   5. CVSS
+2. 버스 프로토콜
+3. SocketCAN을 이용한 차량 통신
+4. 고장 진단과 로깅
+5. CAN 버스 리버스엔지니어링
+6. ECU 해킹
+7. ECU 테스트 벤치 구축과 활용
+8. ECU와 기타 임베디드 시스템 공격
+9.  차량 내 인포테인먼트 시스템
+10. V2V 통신
+11. CAN 결과의 활용
+12. SDR을 이용한 무선 시스템 공격
+13. 성능 튜닝
+14. 차량 해킹 툴 모음
+15. 진단 코드 모드와 PID
+16. 자신만의 Open Garage 만들기
+
+### 와이어샤크를 이용한 패킷캡처 철저입문

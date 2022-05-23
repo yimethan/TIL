@@ -64,7 +64,7 @@
 + parentHash – the unique identifier for the block that came before (this is how blocks are linked in a chain).
 + transactions – the transactions included in the block.
 + stateRoot – the entire state of the system: account balances, contract storage, contract code and account nonces are inside.
-+ nonce – a hash that, when combined with the mixHash, proves that the block has gone through proof-of-work.
++ nonce – a hash that proves that the block has gone through proof-of-work when combined with the mixHash
 
 ---
 
