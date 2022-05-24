@@ -42,7 +42,7 @@
 
 ### Extended CAN
 
-<img src="../-/extended.png>
+<img src="../-/extended.png">
 
 + SRR(Substitute Remote Request)
   + placeholder in the extended format
