@@ -56,6 +56,7 @@
 **SRR**
 
 + [Introduction to the Controller Area Network (CAN)](https://www.ti.com/lit/an/sloa101b/sloa101b.pdf)
++ [Controller Area Network](https://www.eecs.umich.edu/courses/eecs461/doc/CAN_notes.pdf)
 
 ---
 
