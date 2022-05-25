@@ -23,7 +23,7 @@
   + responding data is received by all nodes, used by any node interested
   + all data being used in a system is uniform
 + IDE(Identifier Extension)
-  + dominant single IDE means standard CAN identifier with no extension is beign transmitted
+  + dominant single IDE means standard CAN identifier with no extension is being transmitted
 + r0: reserved bit
   + for possible use by future standard amendment
 + DLC(4-bit)
