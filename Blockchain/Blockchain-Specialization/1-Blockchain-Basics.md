@@ -10,6 +10,15 @@
   - [Hashing](#hashing)
   - [Transaction integrity](#transaction-integrity)
   - [Securing Blockchain](#securing-blockchain)
+- [Decentralized Systems](#decentralized-systems)
+  - [Trust Train](#trust-train)
+- [Robustness](#robustness)
+  - [When more than one miner solves the consensus puzzle](#when-more-than-one-miner-solves-the-consensus-puzzle)
+    - [Chain Split](#chain-split)
+  - [Double spending](#double-spending)
+- [Forks](#forks)
+  - [Hard Fork](#hard-fork)
+  - [Soft Fork](#soft-fork)
 
 # What is 'gas'?
 
@@ -239,3 +248,67 @@ Main components of Ethereum block
 + important purposes
   + verification of integrity of block & transactions
   + formation of the chain link by embedding previous block hash in current block header
+
+# Decentralized Systems
+
++ securing the chain using specific protocols, validating the transaction/blocks for tamper proofing, verifying the availability of resources for transaction, executing/confirming the transactions
+
+## Trust Train
+
+1. Validate transaction
+2. Verify gas and resources
+   + about 20 criteria that have to be checked before a transaction
+   + Ex. Ethereum: syntax, transaction signature, time stamp, nonce, gas limit, sender account balance, fuel, gas points, hash, ...
+3. Select set of transactions to create a block
+   + Merkle tree hash of validated transactions is computed
+   + Ex. Ethereum: All miners execute transaction for transfer/smart contrants
+     + state resulting from transaction execution are used in computing Merkle tree hash of the states(state root of block header)
+     + receipt root of block header is computed
+4. Execute transaction to get a new state
+5. Form a new block
+   + Proof of Work: consensus protocol used by Bitcoin Blockchain and Ethereum
+   + Compute hash of block header elements that is a fixed value(BHash) & a nonce that is a variable &rarr; H(Hash)
+     + If H < F(Difficulty) : puzzle solved, finalize & broadcast winning block to get verified by other miners
+     + Else : repeat process after changing nonce value
+6. Work towards consensus
+7. Finalize the block by the bidder
+8. New block added to chain and confirmed
+
+# Robustness
+
+: ability to satisfactorily manage exceptional situations
+
+## When more than one miner solves the consensus puzzle
+
+### Chain Split
+
++ chain splited into ommer blocks
++ then winner of next cycle for block creation consolidates to a single chain within a cycle
++ uncle block not included in main chain, only one block is accepted
++ new blocks are added to the main chain not to runner-up chains
+
+## Double spending
+
+: digital currency/consumables reused in transactions
+
++ Allow only the first transaction that reference the digital asset and reject the rest
++ Ex. Ethereum: combination of account number & global nonce is used to address the doublet spending issue
+  + Everytime transaction is initiated by an account, global nonce is included in transaction
+  + nonce incremented
+  + timestamp of nonce in transaction should be unique & verfied to prevent any double use of digital asset
+
+# Forks
+
+: process in evolutionary path of the nascent technology enabling blockchain
+
++ like release of software pathces and new versions of operating systems repectively
++ mechanisms that add to the robustness of Blockchain framework
++ well-managed forks help build credibility in Blockchain by proving approaches to manage unexpected faults & planned improvements
+
+## Hard Fork
+
+: major change in protocol
+
+## Soft Fork
+
+: minor process adjustment carried out typically by bootstraping a new software to the already running processes, like software patch or bug fix
