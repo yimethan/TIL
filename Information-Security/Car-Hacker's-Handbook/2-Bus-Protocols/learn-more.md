@@ -3,6 +3,16 @@
     - [Standard CAN](#standard-can)
     - [Extended CAN](#extended-can)
 - [Deeper into OBD-II](#deeper-into-obd-ii)
+- [MOST 제어 블록](#most-제어-블록)
+  - [프레임 구조와 각 비트의](#프레임-구조와-각-비트의)
+  - [쿼들렛](#쿼들렛)
+  - [기능 블록](#기능-블록)
+  - [각 기능의 설명](#각-기능의-설명)
+  - [애플토크 설정](#애플토크-설정)
+    - [MOST150이 가지는 3가지 매커니즘](#most150이-가지는-3가지-매커니즘)
+      - [버스트 모드](#버스트-모드)
+      - [항률](#항률)
+      - [패킷 스트리밍](#패킷-스트리밍)
 
 ---
 
@@ -51,10 +61,6 @@
 + r1
   + additional reserve bit has been included ahead of DLC
 
-**RTR**
-
-**SRR**
-
 + [Introduction to the Controller Area Network (CAN)](https://www.ti.com/lit/an/sloa101b/sloa101b.pdf)
 + [Controller Area Network](https://www.eecs.umich.edu/courses/eecs461/doc/CAN_notes.pdf)
 
@@ -69,3 +75,23 @@
 + OBD-II
   + 2005년부터 국내 모든 승용 자동차에 대해 시스템 장착이 의무화
   + 배출가스 관련 부품에 이상징후 &rarr; OBD-II 센서가 자동차의 ECU에 신호 전달 &rarr; ECU가 계기판에 엔진 체크등 들어오게 하여 배출가스 과다 배출을 사전 감지
+
+# MOST 제어 블록
+
+## 프레임 구조와 각 비트의 
+
+## 쿼들렛
+
+## 기능 블록
+
+## 각 기능의 설명
+
+## 애플토크 설정
+
+### MOST150이 가지는 3가지 매커니즘
+
+#### 버스트 모드
+
+#### 항률
+
+#### 패킷 스트리밍
