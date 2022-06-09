@@ -1,3 +1,4 @@
+- [Blockchain Basics](#blockchain-basics)
 - [What is 'gas'?](#what-is-gas)
 - [Ethereum Structure](#ethereum-structure)
   - [What's in a block?](#whats-in-a-block)
@@ -19,6 +20,10 @@
 - [Forks](#forks)
   - [Hard Fork](#hard-fork)
   - [Soft Fork](#soft-fork)
+
+# Blockchain Basics
+
++ how proven algorithms/techniques for encryption, hashing and peer to peer networks have been creatively applied to the innovation of blockchain, a decentralized, trusted, distributed, immutable ledger
 
 # What is 'gas'?
 
