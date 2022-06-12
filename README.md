@@ -4,7 +4,7 @@
   - [Deep Learning (Coursera)](#deep-learning-coursera)
   - [Kaggle competitions](#kaggle-competitions)
 - [Blockchain](#blockchain)
-  - [Blockchain Basics (Coursera)](#blockchain-basics-coursera)
+  - [Blockchain Specialization (Coursera)](#blockchain-specialization-coursera)
 - [Information Security](#information-security)
   - [Car Hacker's Handbook](#car-hackers-handbook)
   - [와이어샤크를 이용한 패킷캡처 철저입문](#와이어샤크를-이용한-패킷캡처-철저입문)
@@ -44,20 +44,11 @@
 
 ## Blockchain
 
-### Blockchain Basics (Coursera)
+### Blockchain Specialization (Coursera)
 
 &rarr; [Course link](https://www.coursera.org/specializations/blockchain)
 
-+ md files are not summary of the course
-
 1. [Blockchain Basics](https://www.coursera.org/learn/blockchain-basics?specialization=blockchain)
-   + What is 'gas'?
-   + Ethereum Structure
-   + Ethereum Operations
-   + EOAs vs Contract accouts
-   + IoT & Ethereum
-   + UTXO
-   + Algorithms & Techinques: Public-Key Cryptography
 
 2. [Smart Contracts](https://www.coursera.org/learn/smarter-contracts?specialization=blockchain)
 
