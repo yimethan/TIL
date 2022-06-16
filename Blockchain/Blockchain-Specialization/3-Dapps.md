@@ -130,7 +130,51 @@ admin.addPeer("Enode address")
 
 # Truffle Development
 
+**Design Process**
+
+1. Define data & opeartions
+2. Add modifiers & validation checks
+3. Perform unit testing
+4. Integration testing
+
 ## Truffle IDE
+
+: provides a range of features for Dapp development including commands for initializing a template or base directory structure for a Dapp
+
+**Steps in Developing Dapp**
+
+1. Create directory: initialize for various components of Dapp using "truffle init"
+2. Create contracts .sol files in contracts directory. Compile using "truffle compile" debug
+3. Generate test blockchain accounts using "truffle develop"
+4. Deploy compiled contracts to test blockchain: "truffle migrate"
+5. Add test files for testing functions of contracts w "truffle test"
+
+**Install:**
+
++ Node.js
++ Truffle 4.0.4
++ Metamask 3.14.1 plugin for Chrome
+  + Add Metamask plugin from Metamask IO to Chrome browser
+  + links to blockchain created by truffle to manage accounts, acting as a bridge between application front-end & blockchain node that hosts accounts
+
+**truffle init**
+
++ Contracts
+  + sol contract files
++ Migrations
+  + migration system to handle contract deployments
+  + additional special small contrat keeps track of changes
+  + js
++ Test
+  + js and sol tests
++ truffle.js
+  + truffle deployment configurations info
+  + specify blockchain network ID, IP, RPC port
+
+**truffle compile**
+
++ build
+  + build artifacts compiler generated
 
 ## Test-Driven Development
 
