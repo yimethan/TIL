@@ -1,3 +1,27 @@
+- [Dapps](#dapps)
+  - [Blockchain Server](#blockchain-server)
+    - [Dapps Stack](#dapps-stack)
+    - [Install Ethereum services and API](#install-ethereum-services-and-api)
+    - [Create first node](#create-first-node)
+    - [Create node and add it as peer node](#create-node-and-add-it-as-peer-node)
+  - [Dapp Architecture](#dapp-architecture)
+  - [Ethereum APIs](#ethereum-apis)
+- [Truffle Development](#truffle-development)
+  - [Truffle IDE](#truffle-ide)
+    - [truffle init](#truffle-init)
+    - [truffle compile](#truffle-compile)
+    - [truffle develop](#truffle-develop)
+    - [truffle migrate](#truffle-migrate)
+  - [Test-Driven Development](#test-driven-development)
+  - [Web Interface & Testing](#web-interface--testing)
+- [Design Improvements](#design-improvements)
+  - [Solidity Featuers](#solidity-featuers)
+  - [Event Handling](#event-handling)
+  - [Oraclize](#oraclize)
+- [Application Models & Standards](#application-models--standards)
+  - [Dapp Models](#dapp-models)
+  - [Dapp Standards](#dapp-standards)
+
 # Dapps
 
 : Decentralized Applications
@@ -152,12 +176,12 @@ admin.addPeer("Enode address")
 **Install:**
 
 + Node.js
-+ Truffle 4.0.4
-+ Metamask 3.14.1 plugin for Chrome
++ Truffle
++ Metamask plugin for Chrome
   + Add Metamask plugin from Metamask IO to Chrome browser
   + links to blockchain created by truffle to manage accounts, acting as a bridge between application front-end & blockchain node that hosts accounts
 
-**truffle init**
+### truffle init
 
 + Contracts
   + sol contract files
@@ -171,10 +195,22 @@ admin.addPeer("Enode address")
   + truffle deployment configurations info
   + specify blockchain network ID, IP, RPC port
 
-**truffle compile**
+### truffle compile
 
 + build
   + build artifacts compiler generated
+  + json file of each contract
+  + network field is empty object &rarr; migration will save info 
+
+### truffle develop
+
++ test chain with 10 accounts(addresses as account 0~9, 160 bits) & private keys(256 bits)
+
+### truffle migrate
+
++ runs scripts in 'migrations' in turn
++ when contract code is changed and have to redeploy, set --reset flag
+  + truffle migrate --reset
 
 ## Test-Driven Development
 
