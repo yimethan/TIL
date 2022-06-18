@@ -13,6 +13,7 @@
     - [truffle develop](#truffle-develop)
     - [truffle migrate](#truffle-migrate)
   - [Test-Driven Development](#test-driven-development)
+    - [truffle test](#truffle-test)
   - [Web Interface & Testing](#web-interface--testing)
 - [Design Improvements](#design-improvements)
   - [Solidity Featuers](#solidity-featuers)
@@ -213,6 +214,14 @@ admin.addPeer("Enode address")
   + truffle migrate --reset
 
 ## Test-Driven Development
+
++ `Positive tests` : given valid input, smart contract perfomrs as expected
++ 'Negative tests' : for negative inputs, smart contract captures errors
+
+### truffle test
+
++ test tests under 'test'
++ test files written in Solidity/JS
 
 ## Web Interface & Testing
 
