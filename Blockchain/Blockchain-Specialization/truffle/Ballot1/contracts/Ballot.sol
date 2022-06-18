@@ -9,7 +9,7 @@ contract Ballot {
         // address delegate;
     }
 
-    //modifer
+    //modifier
     modifier onlyOwner () {
       require(msg.sender == chairperson);
       _;
