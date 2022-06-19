@@ -215,7 +215,7 @@ admin.addPeer("Enode address")
 
 ## Test-Driven Development
 
-+ `Positive tests` : given valid input, smart contract perfomrs as expected
++ `Positive tests` : given valid input, smart contract performs as expected
 + 'Negative tests' : for negative inputs, smart contract captures errors
 
 ### truffle test
