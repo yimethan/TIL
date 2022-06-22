@@ -15,8 +15,10 @@
   - [Test-Driven Development](#test-driven-development)
     - [truffle test](#truffle-test)
   - [Web Interface & Testing](#web-interface--testing)
+    - [Backend of Dapp - web3 init](#backend-of-dapp---web3-init)
+    - [Metamask](#metamask)
 - [Design Improvements](#design-improvements)
-  - [Solidity Featuers](#solidity-featuers)
+  - [Solidity Features](#solidity-features)
   - [Event Handling](#event-handling)
   - [Oraclize](#oraclize)
 - [Application Models & Standards](#application-models--standards)
@@ -225,9 +227,80 @@ admin.addPeer("Enode address")
 
 ## Web Interface & Testing
 
+### Backend of Dapp - web3 init
+
++ Ballot2/src/js/app.js
+  + instantiates object needed for web client to communicate with blockchain node
+
+**How web3 object is created and linked to test chain**
+
+```
+  initWeb3: function() {
+    // Is there is an injected web3 instance?
+    if (typeof web3 !== 'undefined') {
+      App.web3Provider = web3.currentProvider;
+    } else {
+      // If no injected web3 instance is detected, fallback to the TestRPC
+      App.web3Provider = new Web3.providers.HttpProvider(App.url);
+    }
+    web3 = new Web3(App.web3Provider);
+
+    App.populateAddress();
+    return App.initContract();
+  },
+```
+
+**How to tell web3 where to find smart contract artifacts**
+
+```
+  initContract: function() {
+      $.getJSON('Ballot.json', function(data) {
+    // Get the necessary contract artifact file and instantiate it with truffle-contract
+    var voteArtifact = data;
+    App.contracts.vote = TruffleContract(voteArtifact);
+
+    // Set the provider for our contract
+    App.contracts.vote.setProvider(App.web3Provider);
+    
+    App.getChairperson();
+    return App.bindEvents();
+  });
+```
+
+### Metamask
+
++ bridge between blockchain server & web
++ like digital wallet provides features to connect to underlying blockchain node, manage accounts/gas points for transactions/balances
++ provides simple interface to sign transactoin and transfer gas points needed for execution of transactions
++ Metamask Chrome extension > `Import Existing DEN` > copy and paste mnemonic, set password > type in `http://localhost:9545` in Current Network and click `Save`
+
+**npm run dev**
+
++ provides lightweight web server for development
+
 # Design Improvements
 
-## Solidity Featuers
+## Solidity Features
+
+1. Don't save unnecessary data on blockchain
+2. Logging and Notifications
+3. Access data from external sources
+
++ `memory` and `storage`
+  + Minimize state/footprint of smart contract and lower the gas costs
+  + memory
+    + transient memory in RAM
+    + temporary and is race between function calls
+    + cheaper
+    + byte array
+    + using memory cause few gas points(1~3)
+  + storage
+    + permanent
+    + persist between function calls
+    + key value store of 32 bytes each for key and value
+    + considered state and used in computatoin of state hash route of header
+    + using storage cause thousands of gas points
+    + default of struct & array
 
 ## Event Handling
 
