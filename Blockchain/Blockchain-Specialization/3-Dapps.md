@@ -20,10 +20,14 @@
 - [Design Improvements](#design-improvements)
   - [Solidity Features](#solidity-features)
   - [Event Handling](#event-handling)
+    - [Define Event](#define-event)
+    - [Consume Event](#consume-event)
+    - [Handle Event](#handle-event)
   - [Oraclize](#oraclize)
 - [Application Models & Standards](#application-models--standards)
   - [Dapp Models](#dapp-models)
   - [Dapp Standards](#dapp-standards)
+    - [How standards are implemented in Ethereum](#how-standards-are-implemented-in-ethereum)
 
 # Dapps
 
@@ -302,12 +306,175 @@ admin.addPeer("Enode address")
     + using storage cause thousands of gas points
     + default of struct & array
 
++ Smart contract is
+  + identified by address
+  + may represent a token, organization, person
+  + has owner(creater by default)
+  + has value/ether balance
+  + ownership may change or be deleted
++ self-destruct
+  + delete/kill smart contract
+  + irreversible
+  + Make sure only the owner of smart contract or authorized person has permission to self-destruct a contact
++ Transfer ownership
+  + ```
+    function transferOnwership(address newOwner) onlyByOwner(owner) {
+      // do something... Transfer owner's share
+      owner = newOwner;
+    }
+    ```
++ Composability, specialization, generalization
+  + help in designing smart contract solutions for complex problems
+  + promotes reusability of code and standards across organization and participants
++ Inheritance
+  + ```
+    contract FedLaws{} // in FedLaws.sol
+
+    contract StateLaws{} // in StateLaws.sol
+
+    import "FederalLaws.sol";
+    import "StateLaws.sol";
+    contract FieldLaws is FederalLaws, StateLaws{} // in FieldLaws.sol
+    ```
++ Library
+  + special smart contract with no ether balance
+  + no payable functions and no state to be stored in blockchain
+
 ## Event Handling
+
+`Event`
+
++ push notifications
++ log activities of smart contract
+  + like printf or console log
++ enable asynchronous operations
++ provide alternative for polling
+
+### Define Event
+
++ by its name & params
++ Ex. event sent(from, to amount)
+
+### Consume Event
+
++ set up listener for eent, and consume event notification, act upon it
+
+
+### Handle Event
+
++ in app.js
++ inject the JavaScript assets in the web to display the event notification
 
 ## Oraclize
 
++ data carrier between web resources(APIs/URLs) and smart contract
++ is outside blockchain protocol
++ to get access to external resource
+  + accessing external resources may affect global consistency of blockchain
++ usingOraclize: smart contract provides minimally query function to access external sources
+  + fetches data, provides proof/authentication about sources if needed by calling smart contract
+  + data requested is returned through callback function since accessing data and verification may take some time
+  + class diagram
+    + <img src="-/class-diagram.png">
+  + timeline of execution of functions
+    + <img src="-/timeline.png">
+  + ```
+    import "../usingOraclize.sol";
+
+    contract AverageWinderTemperature is usingOraclize{}
+
+    // AverageWinterTemperature is inheriting usingOraclize and using its functions to access external resources
+    ```
+
 # Application Models & Standards
+
+[Current examples of Ethereum-based Dapps(link)](https://www.stateofthedapps.com)
+
+
+**Hierarchy diagram**
+
++ high level view of variout Dapp model
+
+<img src="-/diagram.png">
 
 ## Dapp Models
 
+**Bitcoin**
+
+**Ethereum smart contract**
+
++ auto crowd funding for startups using virtual instrument Koine and process of initial coin offering
+  + Coin ICO use a blockchain to record the distribution of the coin, receive funds, specified rules, and to enforce any preconditions and policies
++ Tokens and initial token offering
+  + token: like a Dapp coin, but its offering is typically associated with an asset or utility
+    + non-fungible(value can change during lifetime)
++ Auger
+  + prediction Dapp that depends on the wisdom of crowd and their reports on reputation of a product to predict markets
+  + decentralized participants or crowd get paid in REP tokens or reputation tokens
++ DAO(a Decentralized Autonomous Organization)
+  + early innovation in Dapp
+  + investment instrument deployed as a smart contract on Ethereum blockchain
+  + Autonomous venture capital Dapp
+  + vulnerability in the code was exploited by hackers
+    + resulted in a digital heist of a significant portion of the collected funds
+    + hard fork split Ethereum to ETH core as we use it now an ETC
+    + Ethereum classic that still has the DAO bug
++ Decentralized marketplace
+  + Ex. safe remote purchase smart contract in purchase.sol in Solidity documentation
+  + FinTech
+    + domain ranges from decentralized investment instrument to micropayment channels
+  + scalability, privacy, fraud prevention
+
 ## Dapp Standards
+
+### How standards are implemented in Ethereum
+
+**EIP(Ethereum Improvement Proposal)**
+
++ a means to manage the protocol specification, improvements, updates, client APIs and contract standards
++ handles issues of
+  + core/core Ethereum protocol
+  + network/network level improvement
+  + interface/interfaces(ABI, RPC, ERC, ...)
+  + application level conventions and standards
+
+**ERC(Ethereum Request for Comments)**
+
++ is like RFCs of the Internet
++ ERC proposal for application level issues are given a proposal ID &rarr; become ERCN
++ results
+  + Accepted
+    + &rarr; finalized and is allocated an EIP number and implemented by the protocol
+  + Rejected
+  + Withdrawn
+  + Deferred
+
+**Token**
+
++ ERC20
+  + specialized as smart contract interface
+  + specify set of rules allow token Dapps to interact with each other to be exchanged with each other, and transact on Ethereum network
+  + ERC20 interface
+    + ```
+      contract ERC20Interface {
+        function totalSupply() public constanct returns(uint);
+        function balanceOf(address tokenOwner) public constant returns (uint balance);
+        functoin allowance(address tokenOwner, address spender) public constant returns(uint remaining);
+        function transfer(Address to, uint tokens) public returns(bool success);
+        function approve(Address spender, uint tokens) public returns(bool success);
+        function transferFrom(address from, address to, uint tokens) public returns(bool success);
+
+        event Transfer(address indexed from, address indexed to, uint tokens);
+        event Approval(address indexed tokenOwner, address indexed spender, uint tokens);
+      }
+      ```
+    + ```
+      contract MyToken is ERC20Interface {
+        // implement function required by ERC20Interface standard
+        // other functions...
+      }
+      ```
+  + fungible: able to replace or be replaced by another identical item, mutually interchangeable
++ ERC721
+  + nonfungible
+  + Ex. CryptoKitties: Ethereum ERC721 compliant tool
