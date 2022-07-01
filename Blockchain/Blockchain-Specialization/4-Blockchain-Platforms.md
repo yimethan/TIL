@@ -2,6 +2,7 @@
   - [Hyperledger](#hyperledger)
   - [Fabric Services](#fabric-services)
     - [Fabric Model & Functions](#fabric-model--functions)
+    - [Fabric vs Sawtooth](#fabric-vs-sawtooth)
   - [Composer](#composer)
     - [MS Azure](#ms-azure)
 - [Decentralized Applications Platforms](#decentralized-applications-platforms)
@@ -128,7 +129,25 @@
   + Chaincode(app-specific logic)
   + Configurability(pluggable modules)
 
+[Fabric vs Sawtooth vs Composer](https://101blockchains.com/hyperledger-fabric-vs-sawtooth-vs-composer/)
+
+### Fabric vs Sawtooth
+
+||Fabric|Sawtooth|
+|---|---|---|
+Permission level|Permissioned|Permissioned and Permissionless|
+Consensus algorithm|Mostly uses Kafka, supports other algorithms as well|Mostly uses Proof of Elapsed Time, supports other algorithms as well
+BFT support|No, only supports Crash Fault Tolerance|Yes, supports Byzantine Fault Tolerance
+Smart contract technology|Chaincode|Transaction families
+Smart contract type|Installed|Installed and On-chain
+Supported smart contract language|Golang or JS|Rust, JS, Go, or Python; Supports Solidity using Seth
+Transaction processing|Endorsing Peers and Ordering Services|Validators
+State storage|CouchDB or leveldb|Central lmdb database
+EVM support|No|Yes(through seth)
+
 ## Composer
+
+`End of life Aug 2021` : use Fabric v1.4+ instead
 
 + used in setting credentials, running in their server and deploying app
 + composer playgrould tool is executed to allow interacting with deployed business network
