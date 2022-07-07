@@ -21,7 +21,12 @@
     - [Multi-sig](#multi-sig)
 - [Alternative Decentralized Solutions](#alternative-decentralized-solutions)
   - [IPFS(Interplanetary File System)](#ipfsinterplanetary-file-system)
+    - [Architecture](#architecture)
+    - [Elements of hashgraph](#elements-of-hashgraph)
   - [Hashgraph](#hashgraph)
+    - [Includes](#includes)
+    - [Event](#event)
+    - [Hashgraph layer](#hashgraph-layer)
 
 # Permissioned Blockchains
 
@@ -457,6 +462,111 @@ EVM support|No|Yes(through seth)
 
 # Alternative Decentralized Solutions
 
++ IPFS aims to address decentralized data storage problem
++ Hashgraph aims to solve decentralized consensus problem
+
 ## IPFS(Interplanetary File System)
 
++ decentralized file sharing protocol
++ is a decentralized model for file transfer in contrast to centralize namespace and transfer provided by HTTP family or protocols
+  + HTTP operates in centralized hierarchical namespace
+  + Ex. website identified by each item resolved hierarchically by DNS
++ Content addressed, versioned P2P file system
+
+**Ideas**
+
++ Global distributed file system: IPFS is about "distribution" decentralization
++ Content-based identification using secure hash of contents as a file location identifier and Resolving locations using Distributed Hash Table(DHT)
++ Block exchanged using popular Bittorrent based P2P file distribution protocol
++ Incentivizing block exchange using Bitswap protocol
++ Merkle DAG(Directed Acyclic Graph) version-based organization of files, similar to Git version control system
++ Self-certification of storage node servers for security
+
+### Architecture
+
+<img src="-/ipfs.png">
+
++ DHT: maintains location of files
+  + Application use the hash as the key in the DHD that returns the location of the file
+  + Once the location of the file is determined, the peer-to-peer transport takes place
++ Node: computer that holds decentralized file objects formed the global file system
+  + holds objects formed files to be exchanged
+  + identified by cryptographic hashes of its public key
++ File object
+  + `identified by secure hash`
+  + object may contain sub-objects, each with its own hash used in creation of root hash of the object
+
+### Elements of hashgraph
+
+1. Resolve location(hash)
+   1. Send requets for anyone with the resource with this identifier(hash)
+   2. Respond success
+   3. Access P2P
+   4. Routing part of IPFS maintains DHT for locating nodes/file objects
+   5. DHT directly maps onto the location
+2. Exchange blocks of file
+   1.  DHT resovles the closest location to key-value
+   2.  Peer node holding the data blocks are incentivized by bit swap protocol
+     + Peer nodes have want list & have list
+       + want list: all objects the node wants
+       + have list: all objects it has available in its position for sharing with others
+     + imbalance is noted in the form of bit swap credit/debt
+     + bit swap protocol manages block exchanges involving nodes accordingly
+
 ## Hashgraph
+
++ trust model that provides consensus layer that addresses tx latency/energy wasted fairness
++ provides computationally strong algorithm for besetting full tolerance and eventual consistency
+
+**Goal**
+
++ Fairness, Eventual consistency(100%), At low latency(faster transaction confirmation), With minimal power consumption
++ to order tx in decentralized network, addressing fairness, security, latency, energy concentration, percent/fault
+
+### Includes
+
+<img src="-/hashgraph.png">
+
++ Event
++ Transaction
++ Directed acyclic graph: DAG the hashgraph
++ Witness
+  + Famous Witness
+  + Not Famous Witness
++ Round
+  + Round created
+  + Round Received
++ Consensus by voting
++ Gossip protocol
++ Voting
+
+### Event
+
++ every event has only one standard participant & one receiver participant
++ EventID, Hash of the parent, Hash of the other parent(sender), Payload containing time ordered set of txs
++ First event in a round created by each participant is called `witness`
+  + participant may not have an event/witness in a round
+  + witness events get qualified in the future rounds as a famous/not-famous witness absed on being seen by subsequent events
+  + A1, B1, C1, D1 are witnesses <img src="-/witness.png" width=100>
+
++ every event has associated with attribute & Round Created(int value)
+  + roundCreated = 1 for first round
+  + Current round = R
+    + If event created C can see all/supermajority of 'witness' events of round R, then
+      + Elevate to next round, roundCreated for C = R + 1
+    + Else
+      + Leave the roundCreated = R
++ roundReceived
++ consensus loop &rarr; get consensus ordering of events and determines ordering of txs according to hashgraph creators
+  + new event created;
+  + divideRounds: creates next round if conditions warrand that
+    + when a round is delineated, every member of a round should have witness in that round
+  + decideFame: determine if the witnesses of the previous rounds are famous or not based on visibility
+  + findEventOrder: after the fame status of all the witnesses of round is decided(not famous or famous)
+    + ordering involves assigning roundReceived and timeStamp
+
+### Hashgraph layer
+
++ Application Programming Interface
++ Cryptocurrency | File system | EVM, Smart contracts
++ Hashgraph consensus layer
