@@ -1,0 +1,22 @@
+.color-primary {
+    color:red;
+}
+.font-50 {
+    font-size: 50px;
+}
+.color-secondary {
+    color: rgb(0, 255, 100);
+}
+.select-style1 {
+    height:40px; font-size: 50px; color: blue
+}
+
+.tb-head tr > td {
+    border: 1px solid #000;
+    color: red;
+    font-size: 14px;
+    font-weight: bold;
+}
+.tb-body tr > td {
+    border: 1px solid #000;
+}
